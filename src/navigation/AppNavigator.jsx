@@ -80,7 +80,7 @@ export default function AppNavigator() {
 
   const ONESIGNAL_KEY = `7fc70acb-9803-45a4-bf2b-9496b260f720`;
 
-  const TARGET_DATA = new Date(2026, 2, 30, 8, 8, 0);
+  const TARGET_DATA = new Date(2026, 4, 1, 8, 8, 0);
 
   const FATCH_TO_OUR_BACK = `https://north-vector-lab.site/`;
 
@@ -164,6 +164,7 @@ export default function AppNavigator() {
         setAceptTransperency(parsedData.aceptTransperency ?? false);
         setUid(parsedData.uid);
         setIsDataReady(parsedData.isDataReady);
+        setTimeStampUserId(parsedData.timeStampUserId);
 
         //await performAppsFlyerOperationsContinuously();
       } else {
@@ -209,7 +210,8 @@ export default function AppNavigator() {
         idfa,
         aceptTransperency,
         uid,
-        isDataReady
+        isDataReady,
+        timeStampUserId
       };
       const jsonData = JSON.stringify(data);
       await AsyncStorage.setItem('App', jsonData);
@@ -237,7 +239,8 @@ export default function AppNavigator() {
     idfa,
     aceptTransperency,
     uid,
-    isDataReady
+    isDataReady,
+    timeStampUserId
   ]);
 
   const fetchAdServicesAttributionData = async () => {
