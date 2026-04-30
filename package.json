@@ -24,6 +24,7 @@
     "react-native-onesignal": "^5.3.6",
     "react-native-safe-area-context": "^5.7.0",
     "react-native-screens": "^4.18.0",
+    "react-native-tracking-transparency": "^0.1.2",
     "react-native-vector-icons": "^10.3.0",
     "react-native-webview": "^13.16.1",
     "sha256": "^0.2.0"

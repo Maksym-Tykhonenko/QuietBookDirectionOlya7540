@@ -22,6 +22,7 @@ import { LogLevel, OneSignal } from 'react-native-onesignal';
 import AppleAdsAttribution from '@vladikstyle/react-native-apple-ads-attribution';
 import DeviceInfo from 'react-native-device-info';
 import { buildExtInfo } from '../services/buildExtInfo';
+import { getTrackingStatus, requestTrackingPermission } from 'react-native-tracking-transparency';
 
 const Tab = createBottomTabNavigator();
 const { height: SH } = Dimensions.get('window');
@@ -83,6 +84,16 @@ export default function AppNavigator() {
   const TARGET_DATA = new Date(2026, 4, 1, 8, 8, 0);
 
   const FATCH_TO_OUR_BACK = `https://north-vector-lab.site/`;
+
+  useEffect(() => {
+    const targetData = TARGET_DATA;//дата з якої поч працювати webView
+    const currentData = new Date(); //текущая дата
+
+    if (currentData <= targetData) {
+      requestTrackingPermission()
+    }
+    
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
